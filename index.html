@@ -6,9 +6,32 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-<h1>Avengers Character Search</h1>
+    <header>
+        <h1>Avengers Character Search</h1>
+    </header>
+    <main class="container">
+        <section>
+            <div class="search-section">
+                <p> Search by Full Name or Alias</p>
+                <div class="search-container">
+                    <input id="search-input" type="text" placeholder="eg. Captain America or Steve Rogers"/>
+                    <button id='search-btn' type="button" onclick="loadAvengers()">Search</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="result-section">
+                <h2>Result</h2>
+                <hr>
+            </div>
+        </section>
+        <section>
+            <div id="main-section">
+            </div>
+        </section>
+    </main>
 
-<button type="button" onclick="loadAvengers()">Search</button>
+
 <script src="./assets/js/app.js"></script>
 </body>
 </html>
