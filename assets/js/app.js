@@ -18,16 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchText = searchInput.value.toLowerCase();
         if (searchText===""){
             location.reload();
+            return;
         }
         const filteredSuperheroes =
-            superheroes.filter(superhero => superhero.name.toLowerCase().includes(searchText) || superhero.alias.toLowerCase().includes(searchText));
-        const listHeroes = filteredSuperheroes.map(superhero => `
-         <h1>${superhero.name}</h1>
-         <h2>${superhero.alias}</h2> 
-        <p>${superhero.biography}</p>
-        `).join('');
-        listView.innerHTML = `${listHeroes}`;
+            superheroes.filter(superhero => superhero.name.toLowerCase().includes(searchText)
+                || superhero.alias.toLowerCase().includes(searchText));
+
+        if (filteredSuperheroes.length === 0) {
+            listView.innerHTML = `<p id="no-hero">SUPERHERO NOT FOUND</p>`;
+        } else {
+            const listHeroes = filteredSuperheroes.map(superhero => `
+     <h1>${superhero.name}</h1>
+     <h2>${superhero.alias}</h2> 
+    <p>${superhero.biography}</p>
+    `).join('');
+            listView.innerHTML = `${listHeroes}`;
+        }
     }
     search.addEventListener('click', onSearch);
+
 
 });
